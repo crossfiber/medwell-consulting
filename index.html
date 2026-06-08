@@ -152,12 +152,21 @@
     .hero-cta .btn { flex: 1 1 auto; justify-content: center; }
   }
 
-  /* ===== Approach ===== */
+  /* ===== Approach / About ===== */
   .approach { padding: 104px 0; background: var(--cream); }
   .approach-grid {
-    display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 64px; align-items: start;
+    display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 60px; align-items: center;
   }
-  .approach h2 { font-size: clamp(2.2rem, 4vw, 3.1rem); font-weight: 500; }
+  .approach-photo {
+    border-radius: 20px; overflow: hidden;
+    border: 1px solid var(--line); box-shadow: var(--shadow-md);
+  }
+  .approach-photo img {
+    width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top center;
+    display: block;
+  }
+  .approach-body .eyebrow { display: inline-block; margin-bottom: 14px; }
+  .approach h2 { font-size: clamp(2.2rem, 4vw, 3.1rem); font-weight: 500; margin-bottom: 24px; }
   .approach h2 em { font-style: italic; color: var(--green); }
   .approach-body p { color: var(--ink-soft); font-size: 1.08rem; margin-bottom: 18px; }
   .approach-body p:last-child { margin-bottom: 0; }
@@ -167,20 +176,10 @@
     padding-left: 22px; border-left: 2px solid var(--taupe);
     margin-bottom: 30px;
   }
-  .focus { margin-top: 8px; border-top: 1px solid var(--line); }
-  .focus-row {
-    display: flex; align-items: baseline; gap: 18px;
-    padding: 20px 0; border-bottom: 1px solid var(--line);
-  }
-  .focus-row .num {
-    font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
-    color: var(--taupe); min-width: 30px;
-  }
-  .focus-row h3 { font-size: 1.5rem; font-weight: 600; }
-  .focus-row p { color: var(--ink-soft); font-size: 0.96rem; margin-top: 3px; }
   @media (max-width: 860px) {
     .approach { padding: 76px 0; }
-    .approach-grid { grid-template-columns: 1fr; gap: 38px; }
+    .approach-grid { grid-template-columns: 1fr; gap: 34px; }
+    .approach-photo { max-width: 420px; margin: 0 auto; }
   }
 
   /* ===== Contact ===== */
@@ -294,9 +293,8 @@
 <header class="hero" id="top">
   <div class="hero-mono" aria-hidden="true">MW</div>
   <div class="wrap hero-inner">
-    <span class="eyebrow">Pharmaceutical &middot; Medical &middot; Aesthetics</span>
-    <h1>Relationships that move <em>healthcare</em> forward.</h1>
-    <p class="hero-lede">A boutique consulting partner built on decades of trusted relationships, clinical insight, and a genuine passion for people, health, and wellness.</p>
+    <h1>Relationships that <em>matter</em>.</h1>
+    <p class="hero-lede">A boutique consulting partner built on decades of trusted relationships and a genuine passion for people's health and wellness.</p>
     <div class="hero-cta">
       <a href="#contact" class="btn btn-primary">Get in Touch <i class="fa-solid fa-arrow-right"></i></a>
       <a href="#approach" class="btn btn-ghost">Our Approach</a>
@@ -307,27 +305,14 @@
 <!-- ===== Approach ===== -->
 <section class="approach" id="approach">
   <div class="wrap approach-grid">
-    <div>
-      <span class="eyebrow">The MedWell Approach</span>
-      <h2 style="margin-top:16px;">Partnership, <em>not</em> transactions.</h2>
+    <div class="approach-photo">
+      <img src="assets/casi-camacho.jpg" alt="Casi Camacho, founder of MedWell Consulting" loading="lazy">
     </div>
     <div class="approach-body">
+      <span class="eyebrow">The MedWell Approach</span>
+      <h2>Partnership, <em>not</em> transactions.</h2>
       <p class="lead-line">Fifty years of combined experience in sales and consulting, shaped by one belief: relationships come first.</p>
-      <p>MedWell Consulting was born from a passion for people, health, and wellness. We prioritize the needs of the provider's office and positive outcomes for the patients they serve, building long-term partnerships rather than one-time deals.</p>
-      <div class="focus">
-        <div class="focus-row">
-          <span class="num">01</span>
-          <div><h3>Pharmaceutical</h3><p>Decades of relationship-driven experience across the pharmaceutical landscape.</p></div>
-        </div>
-        <div class="focus-row">
-          <span class="num">02</span>
-          <div><h3>Medical</h3><p>Hands-on consulting that keeps the provider and the patient at the center.</p></div>
-        </div>
-        <div class="focus-row">
-          <span class="num">03</span>
-          <div><h3>Aesthetics</h3><p>Thoughtful guidance for practices in the growing aesthetics space.</p></div>
-        </div>
-      </div>
+      <p>MedWell Consulting was born from a passion for people, health, and wellness. We focus on long-term partnerships grounded in trust and experience, not one-time transactions.</p>
     </div>
   </div>
 </section>
