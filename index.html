@@ -79,15 +79,6 @@
   .wrap { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 32px; }
   @media (max-width: 760px) { .wrap { padding: 0 22px; } }
 
-  .eyebrow {
-    font-family: 'Hanken Grotesk', sans-serif;
-    font-size: 0.74rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.22em;
-    color: var(--taupe);
-  }
-
   /* ===== Buttons ===== */
   .btn {
     display: inline-flex; align-items: center; gap: 10px;
@@ -148,7 +139,6 @@
     pointer-events: none; user-select: none; white-space: nowrap;
   }
   .hero-inner { position: relative; z-index: 2; max-width: 760px; }
-  .hero .eyebrow { display: inline-block; margin-bottom: 22px; }
   .hero h1 {
     font-size: clamp(2.9rem, 6.4vw, 5rem);
     font-weight: 500; letter-spacing: -0.004em;
@@ -175,7 +165,6 @@
     width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top center;
     display: block; border-radius: 20px; border: 1px solid var(--line); box-shadow: var(--shadow-md);
   }
-  .approach-body .eyebrow { display: inline-block; margin-bottom: 14px; }
   .approach h2 { font-size: clamp(2.2rem, 4vw, 3.1rem); font-weight: 500; margin-bottom: 24px; }
   .approach h2 em { font-style: italic; color: var(--green); }
   .approach-body p { color: var(--ink-soft); font-size: 1.08rem; margin-bottom: 18px; }
@@ -195,7 +184,6 @@
   /* ===== Contact ===== */
   .contact { padding: 104px 0; background: var(--cream-2); position: relative; }
   .contact-head { max-width: 640px; margin-bottom: 46px; }
-  .contact-head .eyebrow { display: inline-block; margin-bottom: 16px; }
   .contact-head h2 { font-size: clamp(2.3rem, 4.4vw, 3.4rem); font-weight: 500; }
   .contact-head h2 em { font-style: italic; color: var(--green); }
   .contact-head p { margin-top: 16px; color: var(--ink-soft); font-size: 1.1rem; }
@@ -235,7 +223,7 @@
   .contact-direct a:hover { text-decoration: underline; }
   .about-sign { margin-top: 18px; display: flex; flex-direction: column; gap: 3px; }
   .sign-name { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 600; color: var(--ink); line-height: 1.1; }
-  .sign-role { font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--taupe); }
+  .sign-role { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.08rem; color: var(--taupe); }
   .foot-email { color: var(--bone); font-size: 0.95rem; letter-spacing: 0.01em; opacity: 0.9; transition: color .18s ease; }
   .foot-email:hover { color: #fff; text-decoration: underline; }
   @media (max-width: 760px) {
@@ -324,7 +312,6 @@
 <section class="approach" id="approach">
   <div class="wrap approach-grid">
     <div class="approach-body">
-      <span class="eyebrow">The MedWell Approach</span>
       <h2>Partnership, <em>not</em> transactions.</h2>
       <p class="lead-line">Fifty years of combined experience in sales and consulting, shaped by one belief: relationships come first.</p>
       <p>MedWell Consulting was born from a passion for people, health, and wellness. We focus on long-term partnerships grounded in trust and experience, not one-time transactions.</p>
@@ -340,7 +327,6 @@
 <section class="contact" id="contact">
   <div class="wrap">
     <div class="contact-head">
-      <span class="eyebrow">Get in Touch</span>
       <h2>Let's start a <em>conversation</em>.</h2>
       <p>Share your details and we'll be in touch. We would love the chance to get to know you and your practice better.</p>
       <p class="contact-direct">Prefer to email directly? <a href="mailto:casicamacho@medwellconsulting.net">casicamacho@medwellconsulting.net</a></p>
