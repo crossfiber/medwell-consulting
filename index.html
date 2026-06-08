@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MedWell Consulting</title>
+<meta name="description" content="MedWell Consulting, LLC. A boutique consulting partner in the pharmaceutical, medical, and aesthetics space.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+  :root {
+    --green: #307848;          /* MedWell brand green, from logo. CTAs + actions */
+    --green-deep: #1C4A2E;     /* hover / deeper brand green */
+    --forest: #122B1D;         /* dark footer, derived from brand green */
+    --taupe: #90786C;          /* MedWell script taupe, from logo. refined accents */
+    --taupe-soft: #B7A89C;
+    --cream: #F7F5F1;          /* dominant neutral background */
+    --cream-2: #EFEBE3;        /* alternate section tone */
+    --white: #FFFFFF;
+    --ink: #23302A;            /* green-tinted charcoal text */
+    --ink-soft: #5C685F;       /* muted body text */
+    --bone: #EDE9E2;           /* off-white on dark */
+    --bone-mute: rgba(237, 233, 226, 0.74);
+    --line: rgba(35, 48, 42, 0.12);
+    --shadow-sm: 0 1px 2px rgba(18,43,29,0.05), 0 6px 20px rgba(18,43,29,0.06);
+    --shadow-md: 0 10px 30px rgba(18,43,29,0.10), 0 24px 60px rgba(18,43,29,0.09);
+    --nav-h: 80px;
+    --nav-h-sm: 66px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--nav-h) + 20px);
+  }
+  @media (max-width: 760px) {
+    html { scroll-padding-top: calc(var(--nav-h-sm) + 16px); }
+  }
+
+  body {
+    font-family: 'Hanken Grotesk', system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: 0.002em;
+    color: var(--ink);
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 32px; }
+  @media (max-width: 760px) { .wrap { padding: 0 22px; } }
+
+  .eyebrow {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 0.74rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--taupe);
+  }
+
+  /* ===== Buttons ===== */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 0.95rem; font-weight: 600;
+    padding: 14px 28px; border-radius: 999px;
+    border: 1px solid transparent; cursor: pointer;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease, border-color .18s ease;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: var(--green); color: #fff;
+    box-shadow: 0 8px 22px rgba(48,120,72,0.26);
+  }
+  .btn-primary:hover { background: var(--green-deep); transform: translateY(-2px); box-shadow: 0 12px 28px rgba(48,120,72,0.32); }
+  .btn-ghost {
+    background: transparent; color: var(--ink);
+    border-color: var(--line);
+  }
+  .btn-ghost:hover { border-color: var(--green); color: var(--green); transform: translateY(-2px); }
+
+  /* ===== Nav ===== */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h);
+    background: rgba(247,245,241,0.92);
+    -webkit-backdrop-filter: saturate(140%) blur(8px);
+    backdrop-filter: saturate(140%) blur(8px);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.6), var(--shadow-sm);
+    z-index: 100;
+  }
+  .nav-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo img { height: 46px; width: auto; display: block; }
+  .nav-actions { display: flex; align-items: center; gap: 22px; }
+  .nav-link {
+    font-size: 0.92rem; font-weight: 600; color: var(--ink-soft);
+    letter-spacing: 0.01em; transition: color .18s ease;
+  }
+  .nav-link:hover { color: var(--green); }
+  @media (max-width: 620px) {
+    .nav-logo img { height: 38px; }
+    .nav-link.approach { display: none; }
+    .btn.nav-cta { padding: 13px 20px; font-size: 0.88rem; }
+  }
+
+  /* ===== Hero ===== */
+  .hero {
+    position: relative; overflow: hidden;
+    padding-top: calc(var(--nav-h) + 86px);
+    padding-bottom: 104px;
+    background:
+      radial-gradient(120% 80% at 88% 8%, rgba(48,120,72,0.07), transparent 60%),
+      linear-gradient(180deg, var(--cream) 0%, var(--cream-2) 100%);
+  }
+  .hero-mono {
+    position: absolute; right: -4%; top: 50%; transform: translateY(-46%);
+    font-family: 'Cormorant Garamond', serif; font-weight: 600;
+    font-size: clamp(20rem, 38vw, 40rem); line-height: 0.8;
+    color: var(--green); opacity: 0.045; letter-spacing: -0.04em;
+    pointer-events: none; user-select: none; white-space: nowrap;
+  }
+  .hero-inner { position: relative; z-index: 2; max-width: 760px; }
+  .hero .eyebrow { display: inline-block; margin-bottom: 22px; }
+  .hero h1 {
+    font-size: clamp(2.9rem, 6.4vw, 5rem);
+    font-weight: 500; letter-spacing: -0.004em;
+  }
+  .hero h1 em { font-style: italic; color: var(--green); font-weight: 500; }
+  .hero-lede {
+    margin-top: 26px; max-width: 560px;
+    font-size: 1.18rem; color: var(--ink-soft); line-height: 1.62;
+  }
+  .hero-cta { margin-top: 38px; display: flex; flex-wrap: wrap; gap: 14px; }
+  @media (max-width: 760px) {
+    .hero { padding-top: calc(var(--nav-h-sm) + 54px); padding-bottom: 76px; }
+    .hero-lede { font-size: 1.06rem; }
+    .hero-cta .btn { flex: 1 1 auto; justify-content: center; }
+  }
+
+  /* ===== Approach ===== */
+  .approach { padding: 104px 0; background: var(--cream); }
+  .approach-grid {
+    display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 64px; align-items: start;
+  }
+  .approach h2 { font-size: clamp(2.2rem, 4vw, 3.1rem); font-weight: 500; }
+  .approach h2 em { font-style: italic; color: var(--green); }
+  .approach-body p { color: var(--ink-soft); font-size: 1.08rem; margin-bottom: 18px; }
+  .approach-body p:last-child { margin-bottom: 0; }
+  .lead-line {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 1.5rem; color: var(--ink); line-height: 1.4;
+    padding-left: 22px; border-left: 2px solid var(--taupe);
+    margin-bottom: 30px;
+  }
+  .focus { margin-top: 8px; border-top: 1px solid var(--line); }
+  .focus-row {
+    display: flex; align-items: baseline; gap: 18px;
+    padding: 20px 0; border-bottom: 1px solid var(--line);
+  }
+  .focus-row .num {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
+    color: var(--taupe); min-width: 30px;
+  }
+  .focus-row h3 { font-size: 1.5rem; font-weight: 600; }
+  .focus-row p { color: var(--ink-soft); font-size: 0.96rem; margin-top: 3px; }
+  @media (max-width: 860px) {
+    .approach { padding: 76px 0; }
+    .approach-grid { grid-template-columns: 1fr; gap: 38px; }
+  }
+
+  /* ===== Contact ===== */
+  .contact { padding: 104px 0; background: var(--cream-2); position: relative; }
+  .contact-head { max-width: 640px; margin-bottom: 46px; }
+  .contact-head .eyebrow { display: inline-block; margin-bottom: 16px; }
+  .contact-head h2 { font-size: clamp(2.3rem, 4.4vw, 3.4rem); font-weight: 500; }
+  .contact-head h2 em { font-style: italic; color: var(--green); }
+  .contact-head p { margin-top: 16px; color: var(--ink-soft); font-size: 1.1rem; }
+
+  .form-card {
+    background: var(--white); border: 1px solid var(--line);
+    border-radius: 22px; padding: 40px; max-width: 640px;
+    box-shadow: var(--shadow-md);
+  }
+  .field { margin-bottom: 22px; }
+  .field label {
+    display: block; font-size: 0.78rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--ink-soft); margin-bottom: 9px;
+  }
+  .field input {
+    width: 100%; font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 1rem; color: var(--ink);
+    padding: 14px 16px; border-radius: 12px;
+    border: 1px solid var(--line); background: var(--cream);
+    transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+  }
+  .field input::placeholder { color: var(--taupe-soft); }
+  .field input:focus {
+    outline: none; border-color: var(--green); background: #fff;
+    box-shadow: 0 0 0 3px rgba(48,120,72,0.12);
+  }
+  .field.invalid input { border-color: #C0573C; background: #FCF4F1; }
+  .field-error {
+    display: none; margin-top: 7px; font-size: 0.82rem; color: #B14B30;
+  }
+  .field.invalid .field-error { display: block; }
+  .form-submit { width: 100%; justify-content: center; margin-top: 6px; font-size: 1rem; padding: 16px; }
+  .form-note { margin-top: 16px; font-size: 0.85rem; color: var(--ink-soft); text-align: center; }
+  @media (max-width: 760px) {
+    .contact { padding: 76px 0; }
+    .form-card { padding: 28px 22px; border-radius: 18px; }
+  }
+
+  /* ===== Footer ===== */
+  footer { background: var(--forest); color: var(--bone); padding: 70px 0 30px; }
+  .foot-top { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; }
+  .foot-logo {
+    height: 78px; width: auto;
+    background: rgba(247,245,241,0.94); padding: 16px 22px; border-radius: 16px;
+  }
+  .foot-tag {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 1.35rem; color: var(--bone); max-width: 460px;
+  }
+  .foot-divider { width: 100%; height: 1px; background: rgba(237,233,226,0.14); margin: 42px 0 24px; }
+  .foot-bottom {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px; font-size: 0.84rem; color: var(--bone-mute);
+  }
+  .credit { display: inline-flex; align-items: center; gap: 8px; opacity: 0.72; transition: opacity .18s ease; }
+  .credit:hover { opacity: 1; }
+  .credit span { font-size: 0.78rem; letter-spacing: 0.02em; }
+  .credit img { height: 20px; width: auto; display: block; }
+  @media (max-width: 620px) {
+    .foot-bottom { flex-direction: column; text-align: center; gap: 14px; }
+  }
+
+  /* ===== Success modal ===== */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(18,43,29,0.46);
+    -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+    display: flex; align-items: center; justify-content: center;
+    padding: max(24px, env(safe-area-inset-top)) 24px max(24px, env(safe-area-inset-bottom));
+    opacity: 0; visibility: hidden; transition: opacity .22s ease, visibility .22s ease;
+  }
+  .modal-overlay.open { opacity: 1; visibility: visible; }
+  .modal {
+    background: var(--white); border-radius: 22px; padding: 44px 36px;
+    max-width: 440px; width: 100%; text-align: center;
+    box-shadow: var(--shadow-md); transform: translateY(12px); transition: transform .22s ease;
+  }
+  .modal-overlay.open .modal { transform: translateY(0); }
+  .modal-check {
+    width: 62px; height: 62px; border-radius: 50%; margin: 0 auto 20px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(48,120,72,0.12); color: var(--green); font-size: 1.6rem;
+  }
+  .modal h3 { font-size: 2rem; font-weight: 600; margin-bottom: 10px; }
+  .modal p { color: var(--ink-soft); font-size: 1rem; margin-bottom: 26px; }
+  .modal .btn { width: 100%; justify-content: center; }
+</style>
+</head>
+<body>
+
+<!-- ===== Nav ===== -->
+<nav id="siteNav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="nav-logo" aria-label="MedWell Consulting home">
+      <img src="assets/medwell-logo.png" alt="MedWell Consulting logo">
+    </a>
+    <div class="nav-actions">
+      <a href="#approach" class="nav-link approach">Our Approach</a>
+      <a href="#contact" class="btn btn-primary nav-cta">Get in Touch</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<header class="hero" id="top">
+  <div class="hero-mono" aria-hidden="true">MW</div>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Pharmaceutical &middot; Medical &middot; Aesthetics</span>
+    <h1>Relationships that move <em>healthcare</em> forward.</h1>
+    <p class="hero-lede">A boutique consulting partner built on decades of trusted relationships, clinical insight, and a genuine passion for people, health, and wellness.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">Get in Touch <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="#approach" class="btn btn-ghost">Our Approach</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Approach ===== -->
+<section class="approach" id="approach">
+  <div class="wrap approach-grid">
+    <div>
+      <span class="eyebrow">The MedWell Approach</span>
+      <h2 style="margin-top:16px;">Partnership, <em>not</em> transactions.</h2>
+    </div>
+    <div class="approach-body">
+      <p class="lead-line">Fifty years of combined experience in sales and consulting, shaped by one belief: relationships come first.</p>
+      <p>MedWell Consulting was born from a passion for people, health, and wellness. We prioritize the needs of the provider's office and positive outcomes for the patients they serve, building long-term partnerships rather than one-time deals.</p>
+      <div class="focus">
+        <div class="focus-row">
+          <span class="num">01</span>
+          <div><h3>Pharmaceutical</h3><p>Decades of relationship-driven experience across the pharmaceutical landscape.</p></div>
+        </div>
+        <div class="focus-row">
+          <span class="num">02</span>
+          <div><h3>Medical</h3><p>Hands-on consulting that keeps the provider and the patient at the center.</p></div>
+        </div>
+        <div class="focus-row">
+          <span class="num">03</span>
+          <div><h3>Aesthetics</h3><p>Thoughtful guidance for practices in the growing aesthetics space.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-head">
+      <span class="eyebrow">Get in Touch</span>
+      <h2>Let's start a <em>conversation</em>.</h2>
+      <p>Share your details and we'll be in touch. We would love the chance to get to know you and your practice better.</p>
+    </div>
+
+    <div class="form-card">
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate id="contactForm">
+        <input type="hidden" name="form-name" value="contact">
+        <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
+
+        <div class="field" id="f-name">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" placeholder="Your full name" autocomplete="name">
+          <span class="field-error">Please tell us your name.</span>
+        </div>
+        <div class="field" id="f-phone">
+          <label for="cf-phone">Phone</label>
+          <input type="tel" id="cf-phone" name="phone" placeholder="(000) 000-0000" autocomplete="tel">
+          <span class="field-error">A phone number we can reach you at, please.</span>
+        </div>
+        <div class="field" id="f-email">
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="email" placeholder="you@email.com" autocomplete="email">
+          <span class="field-error">That looks incomplete. Try something like you@email.com.</span>
+        </div>
+
+        <button type="submit" class="btn btn-primary form-submit">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+        <p class="form-note">A note back from us, only when it matters.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <img src="assets/medwell-logo.png" alt="MedWell Consulting logo" class="foot-logo">
+      <p class="foot-tag">A passion for people, health, and wellness.</p>
+    </div>
+    <div class="foot-divider"></div>
+    <div class="foot-bottom">
+      <span>&copy; <span id="year"></span> MedWell Consulting, LLC. All rights reserved.</span>
+      <a class="credit" href="https://crossdesigned.com" target="_blank" rel="noopener" aria-label="Website built by Cross Designs">
+        <span>Built by</span>
+        <img src="assets/cross-designs.png" alt="Cross Designs">
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== Success modal ===== -->
+<div class="modal-overlay" id="successModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <div class="modal-check"><i class="fa-solid fa-check"></i></div>
+    <h3 id="modalTitle">Thank you</h3>
+    <p>Your message is on its way. We'll be in touch with you shortly.</p>
+    <button type="button" class="btn btn-primary" id="modalClose">Close</button>
+  </div>
+</div>
+
+<script>
+if ('scrollRestoration' in history) { history.scrollRestoration = 'auto'; }
+
+(function () {
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  if (window.location.hash) {
+    history.replaceState(null, '', window.location.pathname);
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var id = a.getAttribute('href');
+      if (id === '#' || id === '#top') {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        history.replaceState(null, '', window.location.pathname);
+        return;
+      }
+      var target = document.querySelector(id);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.replaceState(null, '', window.location.pathname);
+      }
+    });
+  });
+
+  var form = document.getElementById('contactForm');
+  var modal = document.getElementById('successModal');
+  var modalClose = document.getElementById('modalClose');
+
+  function setError(fieldId, on) {
+    document.getElementById(fieldId).classList.toggle('invalid', on);
+  }
+  function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+  ['cf-name', 'cf-phone', 'cf-email'].forEach(function (id) {
+    document.getElementById(id).addEventListener('input', function () {
+      this.closest('.field').classList.remove('invalid');
+    });
+  });
+
+  function openModal() {
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = document.getElementById('cf-name').value.trim();
+    var phone = document.getElementById('cf-phone').value.trim();
+    var email = document.getElementById('cf-email').value.trim();
+    var ok = true;
+
+    setError('f-name', !name); if (!name) ok = false;
+    setError('f-phone', phone.replace(/\D/g, '').length < 7); if (phone.replace(/\D/g, '').length < 7) ok = false;
+    setError('f-email', !isEmail(email)); if (!isEmail(email)) ok = false;
+
+    if (!ok) {
+      var firstBad = form.querySelector('.field.invalid input');
+      if (firstBad) firstBad.focus();
+      return;
+    }
+
+    var data = new URLSearchParams(new FormData(form)).toString();
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: data
+    }).then(openModal).catch(openModal);
+
+    form.reset();
+  });
+})();
+</script>
+
+</body>
+</html>
