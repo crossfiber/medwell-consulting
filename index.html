@@ -157,13 +157,10 @@
   .approach-grid {
     display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 60px; align-items: center;
   }
-  .approach-photo {
-    border-radius: 20px; overflow: hidden;
-    border: 1px solid var(--line); box-shadow: var(--shadow-md);
-  }
+  .approach-photo { margin: 0; order: -1; }
   .approach-photo img {
     width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top center;
-    display: block;
+    display: block; border-radius: 20px; border: 1px solid var(--line); box-shadow: var(--shadow-md);
   }
   .approach-body .eyebrow { display: inline-block; margin-bottom: 14px; }
   .approach h2 { font-size: clamp(2.2rem, 4vw, 3.1rem); font-weight: 500; margin-bottom: 24px; }
@@ -179,7 +176,7 @@
   @media (max-width: 860px) {
     .approach { padding: 76px 0; }
     .approach-grid { grid-template-columns: 1fr; gap: 34px; }
-    .approach-photo { max-width: 420px; margin: 0 auto; }
+    .approach-photo { order: 0; }
   }
 
   /* ===== Contact ===== */
@@ -223,7 +220,7 @@
   .contact-direct { margin-top: 14px; font-size: 0.98rem; color: var(--ink-soft); }
   .contact-direct a { color: var(--green); font-weight: 600; }
   .contact-direct a:hover { text-decoration: underline; }
-  .about-sign { margin-top: 28px; display: flex; flex-direction: column; gap: 3px; }
+  .about-sign { margin-top: 18px; display: flex; flex-direction: column; gap: 3px; }
   .sign-name { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 600; color: var(--ink); line-height: 1.1; }
   .sign-role { font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--taupe); }
   .foot-email { color: var(--bone); font-size: 0.95rem; letter-spacing: 0.01em; opacity: 0.9; transition: color .18s ease; }
@@ -313,14 +310,14 @@
 <!-- ===== Approach ===== -->
 <section class="approach" id="approach">
   <div class="wrap approach-grid">
-    <div class="approach-photo">
-      <img src="assets/casi-camacho.jpg" alt="Casi Camacho, founder of MedWell Consulting" loading="lazy">
-    </div>
     <div class="approach-body">
       <span class="eyebrow">The MedWell Approach</span>
       <h2>Partnership, <em>not</em> transactions.</h2>
       <p class="lead-line">Fifty years of combined experience in sales and consulting, shaped by one belief: relationships come first.</p>
       <p>MedWell Consulting was born from a passion for people, health, and wellness. We focus on long-term partnerships grounded in trust and experience, not one-time transactions.</p>
+    </div>
+    <div class="approach-photo">
+      <img src="assets/casi-camacho.jpg" alt="Casi Camacho, founder of MedWell Consulting" loading="lazy">
       <p class="about-sign"><span class="sign-name">Casi Camacho</span><span class="sign-role">Founder, MedWell Consulting</span></p>
     </div>
   </div>
